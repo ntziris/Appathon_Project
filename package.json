@@ -1,0 +1,23 @@
+{
+  "name": "appathon_project",
+  "version": "1.0.0",
+  "description": "https://github.com/ntziris/Appathon_Project.git",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ntziris/Appathon_Project.git"
+  },
+  "keywords": [
+    "Node.js",
+    "Express"
+  ],
+  "author": "Nikolaos Tziris",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ntziris/Appathon_Project/issues"
+  },
+  "homepage": "https://github.com/ntziris/Appathon_Project#readme"
+}
