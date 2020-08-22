@@ -1,5 +1,4 @@
 const Article = require('../models/article');
-const article = require('../models/article');
 
 exports.getIndex = (req, res, next) => {
   res.render('index');
