@@ -13,7 +13,7 @@ exports.getResults = async (req, res, next) => {
       $match: { $text: { $search: term } },
     },
     {
-      $project: { title: 1, authors: 1 },
+      $project: { _id: 0, title: 1, authors: 1 },
     },
     {
       $unwind: '$authors',
@@ -22,8 +22,10 @@ exports.getResults = async (req, res, next) => {
       $group: {
         _id: '$authors',
         articles: { $addToSet: '$title' },
-        count: { $sum: 1 },
       },
+    },
+    {
+      $project: { _id: 1, articles: 1, count: { $size: '$articles' } },
     },
     {
       $sort: { count: -1 },
@@ -37,7 +39,7 @@ exports.getResults = async (req, res, next) => {
         const newArticles = [];
         for (a of professor.articles) {
           if (a.length > 85) {
-            newArticles.push(a.slice(0,80) + '...');
+            newArticles.push(a.slice(0, 80) + '...');
           } else {
             newArticles.push(a.slice());
           }
@@ -45,36 +47,16 @@ exports.getResults = async (req, res, next) => {
         return {
           name: professor._id,
           count: professor.count,
-          articles: newArticles
+          articles: newArticles,
         };
       });
 
-      console.log(professors);
       res.render('search', {
         term: term,
-        professors: professors
+        professors: professors,
       });
     })
     .catch(err => {
       console.log(err);
     });
-
-  // for ({ _id: name, count: count } of topProfessors) {
-  //   let articlesByProfessor = search.aggregate([
-  //   {
-  //       $match : { authors : name }
-  //   },
-  //   {
-  //       $project: {authors: 0}
-  //   }
-  //   ]).toArray().map(({title}) => title);
-  //   let professor = {
-  //     name: name,
-  //     coung: count,
-  //     articles: articlesByProfessor,
-  //   };
-  //   topProfessorsWithArticles.push(professor);
-  // }
-
-  // console.log(topProfessorsWithArticles);
 };

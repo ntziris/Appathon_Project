@@ -13,6 +13,11 @@ main {
   margin: auto;
 }
 
+.p {
+  margin: 0;
+  padding: 0;
+}
+
 .centered {
   text-align: center;
 }
@@ -89,9 +94,6 @@ h2 {
   margin: 20px 0;
   text-align: center;
 }
-h2 small {
-  font-size: 0.5em;
-}
 
 .responsive-table li {
   border-radius: 3px;
@@ -115,35 +117,35 @@ h2 small {
   flex-basis: 10%;
 }
 .responsive-table .col-2 {
-  flex-basis: 5%;
+  flex-basis: 10%;
+  text-align: center;
 }
 .responsive-table .col-3 {
-  flex-basis: 85%;
+  flex-basis: 80%;
 }
 
 @media all and (max-width: 767px) {
   .responsive-table .table-header {
     display: none;
   }
+
   .responsive-table li {
     display: block;
   }
+
   .responsive-table .col {
     flex-basis: 100%;
   }
+
   .responsive-table .col {
     display: flex;
     padding: 10px 0;
   }
+
   .responsive-table .col:before {
     color: #6c7a89;
     padding-right: 10px;
     flex-basis: 50%;
     text-align: right;
   }
-}
-
-li {
-  margin: 0;
-  padding: 0;
 }

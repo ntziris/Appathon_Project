@@ -29,19 +29,18 @@
           <ul class="responsive-table">
             <li class="table-header">
               <div class="col col-1">Name</div>
-              <div class="col col-2">#</div>
-              <div class="col col-3">Articles</div>
+              <div class="col col-2">Articles</div>
+              <div class="col col-3">Titles</div>
             </li>
             <% for (let i = 0; i < professors.length; ++i) { %>
             <li class="table-row">
               <div class="col col-1"><%= professors[i].name %></div>
               <div class="col col-2"><%= professors[i].count %></div>
               <div class="col col-3">
-                  <% for (let j = 0; j < professors[i].articles.length && j < 10; ++j) { %>
-                    <p><%= j+1 %>)
-                      <%= professors[i].articles[j] %>
-                    </p>
-                  <% } %>
+                <% for (let j = 0; j < professors[i].articles.length;
+                ++j) { %>
+                <p><%= j+1 %>) <%= professors[i].articles[j] %></p>
+                <% } %>
               </div>
             </li>
             <% } %>
