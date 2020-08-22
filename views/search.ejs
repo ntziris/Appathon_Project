@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Appathon Project</title>
+    <link rel="stylesheet" href="/css/main.css" />
+  </head>
+  <body>
+    <main>
+      <h2 class="centered">Enter a Disease or a Condition:</h2>
+      <form action="/search" method="GET">
+        <div class="wrap">
+          <div class="search">
+            <input
+              type="text"
+              class="searchTerm"
+              id="term"
+              name="term"
+              placeholder="ex. Pneumonia"
+            />
+            <input type="submit" class="searchButton" />
+          </div>
+        </div>
+      </form>
+      <article class="result">
+        <div class="container">
+          <h2>Professors with most publications about <%= term %>:</h2>
+          <ul class="responsive-table">
+            <li class="table-header">
+              <div class="col col-1">Name</div>
+              <div class="col col-2">#</div>
+              <div class="col col-3">Articles</div>
+            </li>
+            <% for (let i = 0; i < professors.length; ++i) { %>
+            <li class="table-row">
+              <div class="col col-1"><%= professors[i].name %></div>
+              <div class="col col-2"><%= professors[i].count %></div>
+              <div class="col col-3">
+                  <% for (let j = 0; j < professors[i].articles.length && j < 10; ++j) { %>
+                    <p><%= j+1 %>)
+                      <%= professors[i].articles[j] %>
+                    </p>
+                  <% } %>
+              </div>
+            </li>
+            <% } %>
+          </ul>
+        </div>
+      </article>
+    </main>
+  </body>
+</html>
