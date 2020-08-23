@@ -12,7 +12,7 @@ Final Project: Appathon COVID-01
 http://83.212.104.235:3000/
 
 ## Παρουσίαση
-
+Σύντομη παρουσίαση: https://github.com/ntziris/Appathon_Project/blob/master/appathon.ppt
 
 ## Τεχνολογίες που χρησιμοποιήθηκαν
 Για την υλοποίηση της εφαρμογής χρησιμοποιήθηκαν οι παρακάτων τεχνολογίες:

@@ -81,16 +81,15 @@ console.log('-----------------------------------');
 let mongoUrl;
 let host = prompt('MongoDb host (localhost): ');
 host = host ? host : 'localhost';
-// host = host ? host : '83.212.104.235';
 let port = prompt('MongoDb port (27017): ');
 port = port ? port : 27017;
 let requiresAuth = prompt('Is authentication required yes/(no): ');
 requiresAuth = requiresAuth ? requiresAuth : 'no';
 if (requiresAuth == 'yes') {
   let user = prompt('MongoDb user: ');
-  user = user ? user : 'admin';
+  user = user ? user : '';
   let pass = prompt('MongoDb pass: ');
-  pass = pass ? pass : 'bGLBNjjt1m';
+  pass = pass ? pass : '';
   mongoUrl = `mongodb://${user}:${pass}@${host}:${port}/appathon`;
 } else {
   mongoUrl = `mongodb://${host}:${port}/appathon`;
@@ -122,7 +121,7 @@ mongoose
       });
   })
   .catch(err => {
-    // console.log('Cannot connect to the database');
+    console.log('Cannot connect to the database');
     console.log(err);
     process.exit();
   });
